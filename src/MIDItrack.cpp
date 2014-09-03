@@ -7,13 +7,21 @@ namespace MIDI
 	MIDItrack::MIDItrack()
 	{
 		// Set up default ID value
-		std::strcpy(this.id, TRACK_CHUNK_ID);
+		std::strcpy(id, TRACK_CHUNK_ID);
 		// Set up default size
-		this.size = 0;
+		size = 0;
 	}
 
 	MIDItrack::~MIDItrack()
 	{
-		delete[] this.id;
+		delete[] id;
+	}
+
+	void MIDItrack::addEvent(MIDItrackevt evt)
+	{
+	}
+
+	void MIDItrack::addEvent(unsigned int delta_time, char evt_type, char mchannel, char param1, char param2)
+	{
 	}
 }

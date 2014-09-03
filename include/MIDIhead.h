@@ -4,8 +4,8 @@
 namespace MIDI
 {
 
-	const char HEADER_CHUNK_ID[4] = "MThd";
-	const char HEADER_CHUNK_SIZE[4] = {0, 0, 0, 6};
+	const char HEADER_CHUNK_ID[4] = {'M', 'T', 'h', 'd'};
+	const unsigned int HEADER_CHUNK_SIZE = 6;
 
 	/**
 	 * The structure for the Header Chunk of any MIDI file

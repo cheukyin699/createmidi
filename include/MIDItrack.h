@@ -37,7 +37,7 @@ namespace MIDI
 
 			/**
 			 * Adds an MIDI track event
-			 * @param MIDItrackevt The track event
+			 * @param evt The track event
 			 */
 			void addEvent(MIDItrackevt evt);
 

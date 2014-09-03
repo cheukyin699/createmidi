@@ -5,7 +5,7 @@ namespace MIDI
 	MIDIfile::MIDIfile()
 	{
 		// Initializes MIDI header with default values
-		MIDIheadInit(this.header);
+		MIDIheadInit(header);
 	}
 
 	MIDIfile::~MIDIfile()
@@ -14,11 +14,10 @@ namespace MIDI
 
 	MIDIhead MIDIfile::getMIDIhead()
 	{
-		return this.header;
+		return header;
 	}
 
-	void MIDIfile::setOutput(ostream o)
+	void MIDIfile::output(ostream& output)
 	{
-		this.output = o;
 	}
 }

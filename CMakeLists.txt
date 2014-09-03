@@ -12,6 +12,6 @@ add_library(CreateMIDI SHARED ${CREATEMIDI_SOURCES} ${CREATEMIDI_HEADERS})
 
 
 # Some examples
-#add_executable(example "${CMAKE_SOURCE_DIR}/example/main.cpp")
-#add_dependencies(example CreateMIDI)
-#target_link_libraries(example CreateMIDI)
+add_executable(example "${CMAKE_SOURCE_DIR}/example/main.cpp")
+add_dependencies(example CreateMIDI)
+target_link_libraries(example CreateMIDI)

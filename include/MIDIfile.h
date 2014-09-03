@@ -32,7 +32,6 @@ namespace MIDI
 		private:
 			MIDIhead header;
 
-			ostream output;
 			vector<MIDItrack> tracks;
 
 		public:
@@ -62,10 +61,10 @@ namespace MIDI
 			 ************************/
 
 			/**
-			 * Sets the output stream
-			 * @param o The output stream
+			 * Outputs to the output stream
+			 * @param output The output stream
 			 */
-			void setOutput(ostream o);
+			void output(ostream& output);
 
 	};
 }
