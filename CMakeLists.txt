@@ -1,8 +1,8 @@
 cmake_minimum_required(VERSION 2.6)
 
 project(CreateMIDI)
-set(CREATEMIDI_VERSION_STRING "0.0.0")
-set(CREATEMIDI_VERSION_MAJOR 0)
+set(CREATEMIDI_VERSION_STRING "0.1.0")
+set(CREATEMIDI_VERSION_MAJOR 1)
 set(CREATEMIDI_VERSION_MINOR 0)
 set(CREATEMIDI_VERSION_PATCH 0)
 
@@ -16,7 +16,7 @@ add_library(CreateMIDI SHARED ${CREATEMIDI_SOURCES} ${CREATEMIDI_HEADERS})
 
 
 # Some examples
-add_executable(example "${CMAKE_SOURCE_DIR}/example/main.cpp")
+add_executable(example "${CMAKE_SOURCE_DIR}/example/example.cpp")
 add_dependencies(example CreateMIDI)
 target_link_libraries(example CreateMIDI)
 
