@@ -1,8 +1,8 @@
 # Ignore all build files
 build/
 
-# Docs files
-doc/
-
 # Ignore VIM/CTags tags file
 tags
+
+# Ignore generated files
+Doxyfile
