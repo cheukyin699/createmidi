@@ -4,7 +4,6 @@
 
 #include <MIDItrack.h>
 
-using namespace std;
 namespace MIDI
 {
 	MIDItrack::MIDItrack()

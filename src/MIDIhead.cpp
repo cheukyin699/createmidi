@@ -2,8 +2,6 @@
 
 #include <MIDIhead.h>
 
-#include <iostream>
-using namespace std;
 namespace MIDI
 {
 	void MIDIheadInit(MIDIhead &mh)
