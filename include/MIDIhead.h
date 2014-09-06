@@ -10,7 +10,7 @@ namespace MIDI
 	/**
 	 * The structure for the Header Chunk of any MIDI file
 	 */
-	typedef struct MIDIhead
+	struct MIDIhead
 	{
 		char id[4];			/**< The Header Chunk ID (Always "MThd") - 4 bytes */
 		unsigned int size;	/**< The Header Chunk size (Always 6 bytes) - 4 bytes */
@@ -31,7 +31,7 @@ namespace MIDI
 		short track_count;	/**< The number of tracks - 2 bytes */
 		short time_div;		/**< The time division - 2 bytes */
 
-	} MIDIhead;
+	}__attribute__((__packed__));
 
 	/**
 	 * Initializes the MIDI Header with the ID and the size

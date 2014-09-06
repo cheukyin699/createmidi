@@ -1,6 +1,7 @@
 #ifndef MIDITRACK_H
 #define MIDITRACK_H
 
+#include <iostream>
 #include <vector>
 
 #include <MIDItrackevt.h>
@@ -21,7 +22,7 @@ namespace MIDI
 			char id[4];
 			unsigned int size;
 
-			vector<char> evt_bytes;
+			vector<unsigned char> evt_bytes;
 
 		public:
 
@@ -42,6 +43,11 @@ namespace MIDI
 			void addEvent(MIDItrackevt evt);
 
 			/**
+			 * Updates the size of the vector to the header
+			 */
+			inline void updateSize();
+
+			/**
 			 * Adds an MIDI track event
 			 * @param delta_time Delta time
 			 * @param evt_type Event type
@@ -49,7 +55,13 @@ namespace MIDI
 			 * @param param1 The first parameter
 			 * @param param2 The second parameter
 			 */
-			void addEvent(unsigned int delta_time, char evt_type, char mchannel, char param1, char param2);
+			void addEvent(unsigned int delta_time, unsigned char evt_type, unsigned char mchannel, unsigned char param1, unsigned char param2);
+
+			/**
+			 * Dumps everything to output stream
+			 * @param output The output stream
+			 */
+			void output(ostream& output);
 	};
 }
 

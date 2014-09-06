@@ -18,7 +18,7 @@ namespace MIDI
 	/**
 	 * The structure for any MIDI track event
 	 */
-	typedef struct MIDItrackevt
+	struct MIDItrackevt
 	{
 		unsigned int delta_time;			/**< The event delta time determines when an event should be
 												played relative to the track's last event. A delta time of
@@ -39,13 +39,14 @@ namespace MIDI
 		unsigned char evt_type_channel;		/**< The combination of the event type and the MIDI channel */
 		unsigned char param1;				/**< First event parameter */
 		unsigned char param2;				/**< Second event parameter */
-	} MIDItrackevt;
+	};
 
 	/**
 	 * Create a note with normal note and octave
 	 * @param note Character from A-G
 	 * @param octave Valid octaves = -5 to 5 (default to 0)
 	 * @return The MIDI note number
+	 * @see MIDInote
 	 */
 	unsigned char makeNote(MIDInote note, short octave = 0);
 

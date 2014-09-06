@@ -42,6 +42,12 @@ namespace MIDI
 			MIDIfile();
 
 			/**
+			 * Constructor
+			 * @param head The MIDIhead
+			 */
+			MIDIfile(MIDIhead head);
+
+			/**
 			 * The default destructor
 			 */
 			~MIDIfile();
@@ -54,17 +60,49 @@ namespace MIDI
 			 * Gets the MIDIhead of this file and returns it
 			 * @return The MIDIhead header
 			 */
-			MIDIhead getMIDIhead();
+			inline MIDIhead getMIDIheader();
+
+			/**
+			 * Gets the number of Tracks
+			 * @return The number of tracks
+			 */
+			inline unsigned short getTracksCount();
 
 			/*************************
 			 * SETTERS
 			 ************************/
 
 			/**
-			 * Outputs to the output stream
+			 * Sets the MIDI format type
+			 * @param type MIDI format type (0-2)
+			 */
+			void setFormatType(unsigned short type);
+
+			/**
+			 * Sets the MIDI time division
+			 *
+			 * For more information, see MIDIhead
+			 * @param div The time division
+			 * @see MIDIhead
+			 */
+			void setTimeDivision(unsigned short div);
+
+			/**
+			 * Dumps everything to the output stream
 			 * @param output The output stream
 			 */
 			void output(ostream& output);
+
+			/**
+			 * Adds a track to vector
+			 * @param track Track to be added
+			 */
+			void addTrack(MIDItrack& track);
+
+			/**
+			 * Updates the track count to the number of tracks in vector
+			 */
+			inline void updateCount();
 
 	};
 }
