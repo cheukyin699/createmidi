@@ -31,21 +31,70 @@ namespace MIDI
 
 	void MIDItrack::addEvent(unsigned int delta_time, unsigned char evt_type, unsigned char mchannel, unsigned char param1, unsigned char param2)
 	{
+		// For the delta_time
 		unsigned char* ptr;
 		delta_time = htonl(delta_time);
 		ptr = (unsigned char*)&delta_time;
-
-		// For the delta_time
 		for(unsigned int i=0; i<sizeof(delta_time); i++)
 			evt_bytes.push_back(ptr[i]);
 		
 		// For the event type 4 bits and MIDI channel 4 bits
 		evt_bytes.push_back(evt_type << 4 | mchannel << 4 >> 4);
-		//cout << hex << (unsigned int)(evt_type << 4|mchannel << 4 >> 4) << endl;
 
-		// Parameter push
+		// Parameter's push
 		evt_bytes.push_back(param1);
 		evt_bytes.push_back(param2);
+	}
+
+	void MIDItrack::addEvent(unsigned int delta_time, unsigned char evt_type, unsigned char mchannel, unsigned char param)
+	{
+		// For the delta_time
+		unsigned char* ptr;
+		delta_time = htonl(delta_time);
+		ptr = (unsigned char*)&delta_time;
+		for(unsigned int i=0; i<sizeof(delta_time); i++)
+			evt_bytes.push_back(ptr[i]);
+		
+		// For the event type 4 bits and MIDI channel 4 bits
+		evt_bytes.push_back(evt_type << 4 | mchannel << 4 >> 4);
+
+		// Parameter push
+		evt_bytes.push_back(param);
+	}
+
+	inline void MIDItrack::addNoteOffEvent(unsigned int delta_time, unsigned char mchannel, unsigned char note, unsigned char veloc)
+	{
+		addEvent(delta_time, Note_Off_evt, mchannel, note, veloc);
+	}
+
+	inline void MIDItrack::addNoteOnEvent(unsigned int delta_time, unsigned char mchannel, unsigned char note, unsigned char veloc)
+	{
+		addEvent(delta_time, Note_On_evt, mchannel, note, veloc);
+	}
+
+	inline void MIDItrack::addNoteAfterTouchEvent(unsigned int delta_time, unsigned char mchannel, unsigned char note, unsigned char amount)
+	{
+		addEvent(delta_time, Note_Aftertouch_evt, mchannel, note, amount);
+	}
+
+	inline void MIDItrack::addControllerEvent(unsigned int delta_time, unsigned char mchannel, unsigned char type, unsigned char value)
+	{
+		addEvent(delta_time, Controller_evt, mchannel, type, value);
+	}
+
+	inline void MIDItrack::addProgramChangeEvent(unsigned int delta_time, unsigned char mchannel, unsigned char num)
+	{
+		addEvent(delta_time, Program_Change_evt, mchannel, num);
+	}
+
+	inline void MIDItrack::addChannelAftertouchEvent(unsigned int delta_time, unsigned char mchannel, unsigned char amount)
+	{
+		addEvent(delta_time, Channel_Aftertouch_evt, mchannel, amount);
+	}
+
+	inline void MIDItrack::addPitchBendEvent(unsigned int delta_time, unsigned char mchannel, unsigned char lsbval, unsigned char msbval)
+	{
+		addEvent(delta_time, Pitch_Bend_evt, mchannel, lsbval, msbval);
 	}
 
 	void MIDItrack::output(ostream& output)

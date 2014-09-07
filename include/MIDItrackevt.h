@@ -3,7 +3,19 @@
 
 namespace MIDI
 {
+	// Event type constants
+	const char Note_Off_evt = 0x8;
+	const char Note_On_evt = 0x9;
+	const char Note_Aftertouch_evt = 0xA;
+	const char Controller_evt = 0xB;
+	const char Program_Change_evt = 0xC;
+	const char Channel_Aftertouch_evt = 0xD;
+	const char Pitch_Bend_evt = 0xE;
+	const char Meta_evt = 0xFF;
 
+	/**
+	 * An enum of some notes
+	 */
 	enum MIDInote
 	{
 		C, CSharp,
