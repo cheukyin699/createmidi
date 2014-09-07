@@ -93,7 +93,10 @@ namespace MIDI
 			 * @see addEvent
 			 * @see MIDInote
 			 */
-			inline void addNoteOffEvent(unsigned int delta_time, unsigned char mchannel, unsigned char note, unsigned char veloc);
+			inline void addNoteOffEvent(unsigned int delta_time, unsigned char mchannel, unsigned char note, unsigned char veloc)
+			{
+				addEvent(delta_time, Note_Off_evt, mchannel, note, veloc);
+			}
 
 			/**
 			 * Adds a note on MIDI event
@@ -111,7 +114,10 @@ namespace MIDI
 			 * @see addEvent
 			 * @see MIDInote
 			 */
-			inline void addNoteOnEvent(unsigned int delta_time, unsigned char mchannel, unsigned char note, unsigned char veloc);
+			inline void addNoteOnEvent(unsigned int delta_time, unsigned char mchannel, unsigned char note, unsigned char veloc)
+			{
+				addEvent(delta_time, Note_On_evt, mchannel, note, veloc);
+			}
 
 			/**
 			 * Adds a note aftertouch MIDI event
@@ -127,7 +133,10 @@ namespace MIDI
 			 * @param note Note
 			 * @param amount The amount (0 = no pressure; 127 = full pressure)
 			 */
-			inline void addNoteAfterTouchEvent(unsigned int delta_time, unsigned char mchannel, unsigned char note, unsigned char amount);
+			inline void addNoteAfterTouchEvent(unsigned int delta_time, unsigned char mchannel, unsigned char note, unsigned char amount)
+			{
+				addEvent(delta_time, Note_Aftertouch_evt, mchannel, note, amount);
+			}
 
 			/**
 			 * Adds a controller event
@@ -141,7 +150,10 @@ namespace MIDI
 			 * @param type Controller type
 			 * @param value Value
 			 */
-			inline void addControllerEvent(unsigned int delta_time, unsigned char mchannel, unsigned char type, unsigned char value);
+			inline void addControllerEvent(unsigned int delta_time, unsigned char mchannel, unsigned char type, unsigned char value)
+			{
+				addEvent(delta_time, Controller_evt, mchannel, type, value);
+			}
 
 			/**
 			 * Adds a program change event
@@ -153,7 +165,10 @@ namespace MIDI
 			 * @param mchannel MIDI channel number
 			 * @param num The program number of the new instrument/patch
 			 */
-			inline void addProgramChangeEvent(unsigned int delta_time, unsigned char mchannel, unsigned char num);
+			inline void addProgramChangeEvent(unsigned int delta_time, unsigned char mchannel, unsigned char num)
+			{
+				addEvent(delta_time, Program_Change_evt, mchannel, num);
+			}
 
 			/**
 			 * Adds a channel aftertouch event
@@ -165,7 +180,10 @@ namespace MIDI
 			 * @param mchannel MIDI channel number
 			 * @param amount The aftertouch amount (0 = no pressure; 127 = full pressure)
 			 */
-			inline void addChannelAftertouchEvent(unsigned int delta_time, unsigned char mchannel, unsigned char amount);
+			inline void addChannelAftertouchEvent(unsigned int delta_time, unsigned char mchannel, unsigned char amount)
+			{
+				addEvent(delta_time, Channel_Aftertouch_evt, mchannel, amount);
+			}
 
 			/**
 			 * Adds a pitch bend event
@@ -183,7 +201,10 @@ namespace MIDI
 			 * @param lsbval Value (LSB)
 			 * @param msbval Value (MSB)
 			 */
-			inline void addPitchBendEvent(unsigned int delta_time, unsigned char mchannel, unsigned char lsbval, unsigned char msbval);
+			inline void addPitchBendEvent(unsigned int delta_time, unsigned char mchannel, unsigned char lsbval, unsigned char msbval)
+			{
+				addEvent(delta_time, Pitch_Bend_evt, mchannel, lsbval, msbval);
+			}
 	};
 }
 

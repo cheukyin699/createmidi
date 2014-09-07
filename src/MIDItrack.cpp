@@ -62,41 +62,6 @@ namespace MIDI
 		evt_bytes.push_back(param);
 	}
 
-	inline void MIDItrack::addNoteOffEvent(unsigned int delta_time, unsigned char mchannel, unsigned char note, unsigned char veloc)
-	{
-		addEvent(delta_time, Note_Off_evt, mchannel, note, veloc);
-	}
-
-	inline void MIDItrack::addNoteOnEvent(unsigned int delta_time, unsigned char mchannel, unsigned char note, unsigned char veloc)
-	{
-		addEvent(delta_time, Note_On_evt, mchannel, note, veloc);
-	}
-
-	inline void MIDItrack::addNoteAfterTouchEvent(unsigned int delta_time, unsigned char mchannel, unsigned char note, unsigned char amount)
-	{
-		addEvent(delta_time, Note_Aftertouch_evt, mchannel, note, amount);
-	}
-
-	inline void MIDItrack::addControllerEvent(unsigned int delta_time, unsigned char mchannel, unsigned char type, unsigned char value)
-	{
-		addEvent(delta_time, Controller_evt, mchannel, type, value);
-	}
-
-	inline void MIDItrack::addProgramChangeEvent(unsigned int delta_time, unsigned char mchannel, unsigned char num)
-	{
-		addEvent(delta_time, Program_Change_evt, mchannel, num);
-	}
-
-	inline void MIDItrack::addChannelAftertouchEvent(unsigned int delta_time, unsigned char mchannel, unsigned char amount)
-	{
-		addEvent(delta_time, Channel_Aftertouch_evt, mchannel, amount);
-	}
-
-	inline void MIDItrack::addPitchBendEvent(unsigned int delta_time, unsigned char mchannel, unsigned char lsbval, unsigned char msbval)
-	{
-		addEvent(delta_time, Pitch_Bend_evt, mchannel, lsbval, msbval);
-	}
-
 	void MIDItrack::output(ostream& output)
 	{
 		// Updates the size of header value

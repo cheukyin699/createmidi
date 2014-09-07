@@ -14,7 +14,6 @@ int main()
 	// MIDIfile
 	MIDIfile f;
 	MIDItrack t;
-	MIDItrackevt evt;
 
 	// Set format type
 	f.setFormatType(0);
@@ -22,18 +21,10 @@ int main()
 	f.setTimeDivision(0xe0);
 
 	// Set event (keydown)
-	evt.delta_time = 0;
-	evt.evt_type_channel = 0x90;
-	evt.param1 = makeNote(C);
-	evt.param2 = 100;
-	t.addEvent(evt);
+	t.addNoteOnEvent(0, 0, makeNote(C), 100);
 
 	// Set event (keyup)
-	evt.delta_time = 100;
-	evt.evt_type_channel = 0x80;
-	evt.param1 = makeNote(C);
-	evt.param2 = 100;
-	t.addEvent(evt);
+	t.addNoteOffEvent(100, 0, makeNote(C), 100);
 
 	// Adds the track
 	f.addTrack(t);
