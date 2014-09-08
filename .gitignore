@@ -6,3 +6,8 @@ tags
 
 # Ignore generated files
 Doxyfile
+
+# Ignore eclipse files
+.project
+.cproject
+.settings/
