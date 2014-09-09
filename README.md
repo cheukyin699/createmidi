@@ -5,7 +5,8 @@ About
 -----
 CreateMIDI is a library that helps you create MIDI files.
 
-Author: Ng Cheuk Yin <mailto:cheukyin699@yahoo.com>
+Author:		Ng Cheuk Yin <mailto:cheukyin699@yahoo.com>
+License:	GNU General Public License v3
 
 Build
 -----
